@@ -1,68 +1,184 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+/* Mental Health Support App Design System - Calming & Supportive */
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
+@layer base {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    /* Calming base colors */
+    --background: 220 15% 97%;
+    --foreground: 220 20% 20%;
+
+    /* Gentle card colors */
+    --card: 220 20% 99%;
+    --card-foreground: 220 20% 25%;
+
+    --popover: 220 20% 99%;
+    --popover-foreground: 220 20% 25%;
+
+    /* Soothing primary - soft blue */
+    --primary: 210 65% 55%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 210 65% 70%;
+    --primary-soft: 210 60% 95%;
+
+    /* Calming secondary - lavender */
+    --secondary: 250 25% 90%;
+    --secondary-foreground: 250 35% 30%;
+    --secondary-soft: 250 20% 95%;
+
+    /* Warm comfort colors */
+    --comfort: 25 85% 85%;
+    --comfort-foreground: 25 50% 30%;
+    --comfort-soft: 25 60% 95%;
+
+    /* Gentle nature green */
+    --nature: 140 40% 75%;
+    --nature-foreground: 140 50% 25%;
+    --nature-soft: 140 30% 95%;
+
+    /* Soft muted tones */
+    --muted: 220 15% 92%;
+    --muted-foreground: 220 20% 45%;
+
+    --accent: 210 65% 92%;
+    --accent-foreground: 210 65% 25%;
+
+    /* Gentle warning colors */
+    --destructive: 0 65% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 94%;
+    --ring: 210 65% 55%;
+
+    --radius: 1rem;
+
+    /* Calming gradients */
+    --gradient-calm: linear-gradient(135deg, hsl(var(--primary-soft)), hsl(var(--secondary-soft)));
+    --gradient-comfort: linear-gradient(135deg, hsl(var(--comfort-soft)), hsl(var(--nature-soft)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary-foreground)) 100%);
+    
+    /* Gentle shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(var(--primary) / 0.15);
+    --shadow-comfort: 0 8px 30px -8px hsl(var(--comfort) / 0.4);
+    --shadow-nature: 0 6px 25px -6px hsl(var(--nature) / 0.3);
+
+    /* Smooth transitions */
+    --transition-calm: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-gentle: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
-  a:hover {
-    color: #747bff;
+
+  .dark {
+    /* Dark mode with deeper comfort tones */
+    --background: 220 25% 8%;
+    --foreground: 220 15% 92%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 220 15% 88%;
+
+    --popover: 220 20% 12%;
+    --popover-foreground: 220 15% 88%;
+
+    --primary: 210 65% 65%;
+    --primary-foreground: 220 25% 8%;
+    --primary-light: 210 65% 75%;
+    --primary-soft: 210 50% 15%;
+
+    --secondary: 250 20% 20%;
+    --secondary-foreground: 250 15% 85%;
+    --secondary-soft: 250 15% 12%;
+
+    --comfort: 25 40% 25%;
+    --comfort-foreground: 25 30% 85%;
+    --comfort-soft: 25 30% 12%;
+
+    --nature: 140 25% 30%;
+    --nature-foreground: 140 20% 85%;
+    --nature-soft: 140 20% 12%;
+
+    --muted: 220 20% 18%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 210 65% 20%;
+    --accent-foreground: 210 65% 85%;
+
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 220 15% 92%;
+
+    --border: 220 20% 20%;
+    --input: 220 20% 16%;
+    --ring: 210 65% 65%;
+
+    /* Dark mode gradients */
+    --gradient-calm: linear-gradient(135deg, hsl(var(--primary-soft)), hsl(var(--secondary-soft)));
+    --gradient-comfort: linear-gradient(135deg, hsl(var(--comfort-soft)), hsl(var(--nature-soft)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary-foreground)) 100%);
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  /* Calming animations */
+  @keyframes gentle-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+
+  @keyframes soft-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+  }
+
+  @keyframes calm-fade-in {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-gentle-float {
+    animation: gentle-float 6s ease-in-out infinite;
+  }
+
+  .animate-soft-pulse {
+    animation: soft-pulse 4s ease-in-out infinite;
+  }
+
+  .animate-calm-fade-in {
+    animation: calm-fade-in 0.8s ease-out forwards;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
   }
 }
